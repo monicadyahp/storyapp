@@ -1,0 +1,359 @@
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.register-box {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px; /* 🟢 Tambahkan batas maksimal agar tidak terlalu kecil */
+  text-align: center;
+}
+
+/* ✅ Input Styling */
+.input-group {
+  position: relative;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.register-container {
+  background: linear-gradient(135deg, #87CEFA, #4682B4);
+  width: 100vw;  /* 🔹 Lebar penuh */
+  height: 100vh; /* 🔹 Tinggi penuh */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box; /* 🔹 Hindari padding mempengaruhi ukuran */
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #ffffff; /* Putih bersih */
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: black; /* Warna teks hitam */
+}
+
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* ✅ Styling Tombol */
+.button-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+/* 🔵 Tombol Login (Biru Langit) */
+.login-btn {
+  display: inline-block;
+  padding: 8px 12px;
+  font-size: 1em;
+  color: deepskyblue;
+  border: 2px solid deepskyblue;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.login-btn:hover {
+  background-color: deepskyblue;
+  color: white;
+}
+
+/* 🔴 Tombol Logout */
+.logout-btn {
+  border: 2px solid red;
+  background-color: transparent;
+  color: red;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.logout-btn:hover {
+  background-color: red;
+  color: white;
+}
+
+/* 🔵 Tombol Daftar Akun & Tambah Story */
+.register-btn, .add-story-btn {
+  display: inline-block;
+  padding: 8px 12px;
+  font-size: 1em;
+  color: deepskyblue;
+  border: 2px solid deepskyblue;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+.register-btn:hover, .add-story-btn:hover {
+  background-color: deepskyblue;
+  color: white;
+}
+
+/* ✅ Styling Story Container */
+.stories-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+}
+
+/* ✅ Card Story (Border Abu-abu, Teks Putih) */
+.story-item {
+  border: 2px solid gray;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  background-color: #333;
+  transition: transform 0.3s ease-in-out;
+  width: calc(33.33% - 16px);
+  max-width: 300px;
+  min-width: 200px;
+  flex-grow: 1;
+  box-sizing: border-box;
+}
+.story-item:hover {
+  transform: scale(1.05);
+}
+
+/* ✨ Teks dalam story */
+.story-title,
+.story-desc {
+  color: white;
+}
+
+.loading-spinner {
+  width: 30px;
+  height: 30px;
+  border: 4px solid rgba(0, 0, 0, 0.2);
+  border-top: 4px solid deepskyblue;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 10px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ✅ Foto tetap proporsional */
+.story-img {
+  width: auto;
+  max-width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+/* 🔵 Tombol "Lihat Detail" (Border Biru Langit) */
+.detail-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: 2px solid deepskyblue;
+  background-color: transparent;
+  color: deepskyblue;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 1em;
+  transition: 0.3s;
+}
+.detail-link:hover {
+  background-color: deepskyblue;
+  color: white;
+}
+
+h2, h3, p {
+  color: black; /* Warna teks hitam */
+}
+
+/* ❌ Styling untuk error */
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+/* ✅ Map agar fleksibel sesuai layar */
+#map-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.small-map {
+  width: 90vw;
+  max-width: 1000px;
+  height: 500px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ✅ Styling Form Agar Full Width */
+.full-width-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px; /* Atur max-width agar tidak terlalu lebar */
+  margin: 0 auto;
+}
+
+.input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group button {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-group button {
+  background-color: deepskyblue;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.input-group button:hover {
+  background-color: dodgerblue;
+}
+
+/* ✅ Preview Gambar */
+.preview-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+  display: none;
+}
+
+#previewContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
+#cameraPreview, #previewImage {
+  width: 100%;
+  height: 300px;
+  border-radius: 5px;
+  object-fit: cover;
+  display: none;
+}
+
+#capturePhoto {
+  margin-top: 5px;
+  display: none;
+  width: 100%;
+  padding: 10px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ✅ Styling Map */
+#map-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.small-map {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ✅ Tombol Gunakan Lokasi */
+#locateMe {
+  width: 100%;
+  padding: 10px;
+  background-color: orange;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+#locateMe:hover {
+  background-color: darkorange;
+}
+
+/* ✅ Tombol Submit */
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: deepskyblue;
+  color: white;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.submit-btn:hover {
+  background-color: dodgerblue;
+}
+
+
+/* ✅ Responsif */
+@media (max-width: 768px) {
+  .stories-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .story-item {
+    width: 90%;
+  }
+}
