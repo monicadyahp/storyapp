@@ -5,10 +5,7 @@ import { updateSubscriptionButton, unsubscribePushNotification, subscribePushNot
 export default class HomePresenter {
     constructor(view) {
         this.view = view;
-<<<<<<< HEAD
         // Jangan panggil init() di sini lagi
-=======
->>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
     }
 
     async init() { // Ini akan dipanggil dari router setelah view di-render
@@ -31,28 +28,6 @@ export default class HomePresenter {
         await this.loadStories(); // Muat cerita dulu agar elemen stories ada
 
         setTimeout(async () => {
-<<<<<<< HEAD
-        await updateSubscriptionButton('notificationButton', 'Subscribe', 'Disubscribe');
-        const notificationButton = this.view.notificationButton;
-        if (notificationButton) {
-            notificationButton.onclick = async () => {
-                const isSubscribed = await getPushSubscription();
-                if (isSubscribed) {
-                    await unsubscribePushNotification();
-                    notificationButton.textContent = 'Subscribe';
-                    notificationButton.style.backgroundColor = '#FFC107'; // Restore original color
-                } else {
-                    await subscribePushNotification();
-                    notificationButton.textContent = 'Disubscribe';
-                    notificationButton.style.backgroundColor = '#E0A800'; // Darker color for active state
-                }
-            };
-        } else {
-            console.warn("Notification button element not found on init after timeout.");
-        }
-    }, 50);
-
-=======
             await updateSubscriptionButton('notificationButton', 'Aktifkan Notifikasi', 'Nonaktifkan Notifikasi');
             const notificationButton = this.view.notificationButton;
             if (notificationButton) {
@@ -68,7 +43,6 @@ export default class HomePresenter {
                 console.warn("Notification button element not found on init after timeout.");
             }
         }, 50);
->>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
     }
 
     async loadStories() {
@@ -87,12 +61,4 @@ export default class HomePresenter {
         window.location.hash = '#/';
         window.location.reload();
     }
-<<<<<<< HEAD
 }
-
-//muahahaha
-//jelek
-//cihuy
-=======
-}
->>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18

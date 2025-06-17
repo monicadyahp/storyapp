@@ -1,23 +1,14 @@
 // src/views/page/Bookmark.js
-<<<<<<< HEAD
 import L from 'leaflet'; // Import Leaflet jika Anda berencana menampilkan peta di halaman bookmark
-=======
-import L from 'leaflet';
->>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
 
 export default class BookmarkView {
     constructor() {
         this.storiesContainer = null;
-<<<<<<< HEAD
         this.messageContainer = null; // Untuk pesan "Tidak ada cerita favorit"
-=======
-        this.messageContainer = null;
->>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
     }
 
     render() {
         const bookmarkContainer = document.createElement('div');
-<<<<<<< HEAD
         bookmarkContainer.classList.add('fade-in'); // Untuk transisi halus
         bookmarkContainer.innerHTML = `
             <style>
@@ -170,16 +161,6 @@ export default class BookmarkView {
                 <div class="header-container">
                     <a href="#/" class="back-button logout-btn">← Kembali</a> <h2>Cerita Favorit Anda</h2>
                     <div style="width: 120px;"></div> </div>
-=======
-        bookmarkContainer.classList.add('fade-in');
-        bookmarkContainer.innerHTML = `
-            <div class="bookmark-container">
-                <div class="header-container">
-                    <a href="#/" class="back-button logout-btn">← Kembali</a>
-                    <h2>Cerita Favorit Anda</h2>
-                    <div style="width: 120px;"></div>
-                </div>
->>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
                 <div id="bookmarkStories" class="stories-container">Loading favorit cerita...</div>
                 <p id="bookmarkMessage" class="empty-message"></p>
             </div>
@@ -187,11 +168,8 @@ export default class BookmarkView {
 
         this.storiesContainer = bookmarkContainer.querySelector('#bookmarkStories');
         this.messageContainer = bookmarkContainer.querySelector('#bookmarkMessage');
-<<<<<<< HEAD
         // Optional: Anda bisa juga bind tombol kembali jika ingin custom logic
         // this.backButton = bookmarkContainer.querySelector('.back-button');
-=======
->>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
 
         return bookmarkContainer;
     }
@@ -199,22 +177,14 @@ export default class BookmarkView {
     showStories(stories) {
         this.storiesContainer.innerHTML = '';
         if (stories.length === 0) {
-<<<<<<< HEAD
             this.messageContainer.innerHTML = '<p>Anda belum memiliki cerita favorit.</p>';
-=======
-            this.messageContainer.innerHTML = '<p class="empty-message">Anda belum memiliki cerita favorit.</p>';
->>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
             return;
         }
 
         stories.forEach(story => {
             const storyElement = document.createElement('div');
             storyElement.classList.add('story-item', 'fade-in');
-<<<<<<< HEAD
             storyElement.dataset.storyId = story.id; // Penting untuk menghapus nanti
-=======
-            storyElement.dataset.storyId = story.id;
->>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
 
             const createdAt = new Date(story.createdAt).toLocaleDateString('id-ID');
 
@@ -225,17 +195,10 @@ export default class BookmarkView {
                 <p class="story-date">Created At: ${createdAt}</p>
                 <a class="detail-link" href="#/detail?id=${story.id}">Lihat Detail</a>
                 <button class="remove-bookmark-btn" data-id="${story.id}">Hapus</button>
-<<<<<<< HEAD
             `;
             this.storiesContainer.appendChild(storyElement);
         });
         this.messageContainer.innerHTML = ''; // Sembunyikan pesan jika ada cerita
-=======
-            `; // <-- PASTIKAN SINTAKS TEMPLATE LITERAL INI BENAR
-            this.storiesContainer.appendChild(storyElement);
-        });
-        this.messageContainer.innerHTML = '';
->>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
     }
 
     showError(message = 'Gagal memuat cerita favorit.') {
