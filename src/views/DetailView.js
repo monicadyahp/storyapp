@@ -1,5 +1,9 @@
 // src > views > DetailView.js
+<<<<<<< HEAD
 import L from 'leaflet'; // Pastikan Leaflet diimpor jika digunakan di sini
+=======
+import L from 'leaflet';
+>>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
 
 export default class DetailView {
     constructor() {
@@ -8,14 +12,20 @@ export default class DetailView {
         this.usernameElement = null;
         this.captionElement = null;
         this.mapElement = null;
+<<<<<<< HEAD
         this.favoriteButton = null; // Tambahkan referensi untuk tombol favorit
         this.favoriteMessageElement = null; // Tambahkan referensi untuk pesan favorit
+=======
+        this.favoriteButton = null;
+        this.favoriteMessageElement = null;
+>>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
     }
 
     render() {
         const detailContainer = document.createElement('div');
         detailContainer.classList.add('detail-container');
 
+<<<<<<< HEAD
         detailContainer.innerHTML = `
         <style>
             html, body {
@@ -185,6 +195,10 @@ export default class DetailView {
         </style>
 
         <!-- Skip to Content Link -->
+=======
+        // Hapus atau kosongkan seluruh blok <style> di sini
+        detailContainer.innerHTML = `
+>>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
         <a href="#main-content" class="skip-to-content">Skip to main content</a>
 
         <button class="back-button" id="back-button">← Kembali</button>
@@ -213,8 +227,13 @@ export default class DetailView {
         this.usernameElement = detailContainer.querySelector('#story-username');
         this.captionElement = detailContainer.querySelector('#story-caption');
         this.mapElement = detailContainer.querySelector('#map');
+<<<<<<< HEAD
         this.favoriteButton = detailContainer.querySelector('#favoriteButton'); // Dapatkan referensi tombol
         this.favoriteMessageElement = detailContainer.querySelector('#favoriteMessage'); // Dapatkan referensi elemen pesan
+=======
+        this.favoriteButton = detailContainer.querySelector('#favoriteButton');
+        this.favoriteMessageElement = detailContainer.querySelector('#favoriteMessage');
+>>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
 
         return detailContainer;
     }
@@ -243,7 +262,11 @@ export default class DetailView {
 
         L.marker([story.lat, story.lon])
             .addTo(window.currentMap)
+<<<<<<< HEAD
             .bindPopup(`<strong>${story.name}</strong><br>${story.description}`)
+=======
+            .bindPopup(`<strong><span class="math-inline">\{story\.name\}</strong\><br\></span>{story.description}`)
+>>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
             .openPopup();
 
         setTimeout(() => window.currentMap.invalidateSize(), 200);
@@ -258,27 +281,43 @@ export default class DetailView {
         this.backButton.addEventListener('click', callback);
     }
 
+<<<<<<< HEAD
     // Metode baru untuk mengikat event tombol favorit
+=======
+>>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
     bindFavoriteButton(callback) {
         if (this.favoriteButton) {
             this.favoriteButton.addEventListener('click', callback);
         }
     }
 
+<<<<<<< HEAD
     // Metode untuk menampilkan status tombol favorit
+=======
+>>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
     setFavoriteButtonStatus(isFavorited) {
         if (this.favoriteButton) {
             if (isFavorited) {
                 this.favoriteButton.textContent = 'Hapus Favorit';
+<<<<<<< HEAD
                 this.favoriteButton.style.backgroundColor = '#FF6347'; // Contoh: warna merah/orange
             } else {
                 this.favoriteButton.textContent = 'Favoritkan';
                 this.favoriteButton.style.backgroundColor = '#FFD700'; // Contoh: warna gold
+=======
+                this.favoriteButton.style.backgroundColor = '#FF6347';
+            } else {
+                this.favoriteButton.textContent = 'Favoritkan';
+                this.favoriteButton.style.backgroundColor = '#FFD700';
+>>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
             }
         }
     }
 
+<<<<<<< HEAD
     // Metode untuk menampilkan pesan sukses
+=======
+>>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
     showFavoriteMessage(message) {
         if (this.favoriteMessageElement) {
             this.favoriteMessageElement.textContent = message;
@@ -286,7 +325,10 @@ export default class DetailView {
         }
     }
 
+<<<<<<< HEAD
     // Metode untuk menampilkan pesan error
+=======
+>>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
     showFavoriteErrorMessage(message) {
         if (this.favoriteMessageElement) {
             this.favoriteMessageElement.textContent = message;

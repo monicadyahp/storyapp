@@ -1,11 +1,24 @@
+<<<<<<< HEAD
 // src > views > HomeView.js
 export default class HomeView {
+=======
+// src > views > page > Home.js
+// Hapus import HomePresenter dan HomeView dari sini. Ini adalah VIEW.
+// import HomePresenter from '../../presenter/HomePresenter'; // Hapus
+// import HomeView from '../HomeView'; // Hapus
+
+export default class HomeView { // <-- UBAH default export menjadi kelas HomeView
+>>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
     constructor() {
         this.storiesContainer = null;
         this.logoutButton = null;
         this.skipToContent = null;
         this.headerContainer = null;
+<<<<<<< HEAD
         this.notificationButton = null; // Tambahkan referensi untuk tombol notifikasi
+=======
+        this.notificationButton = null;
+>>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
     }
 
     render() {
@@ -192,7 +205,10 @@ export default class HomeView {
                 font-weight: bold;
                 transition: 0.3s;
                 margin-right: 10px; /* Jaga jarak dengan tombol lain */
+<<<<<<< HEAD
                 display: none; /* Sembunyikan secara default, akan diatur oleh JS */
+=======
+>>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
             }
 
             .notification-btn:hover {
@@ -261,16 +277,34 @@ export default class HomeView {
         this.logoutButton = homeContainer.querySelector('#logout');
         this.skipToContent = homeContainer.querySelector('#skipToContent');
         this.headerContainer = homeContainer.querySelector('#header');
+<<<<<<< HEAD
         this.notificationButton = homeContainer.querySelector('#notificationButton'); // Bind tombol notifikasi
+=======
+        this.notificationButton = homeContainer.querySelector('#notificationButton');
+
+        // PENTING: Event listeners ini HARUS DI BIND DI PRESENTER, bukan di View
+        // Karena presenter yang punya callback
+        // homeContainer.querySelector('h2').addEventListener('click', ...); // Hapus ini
+        // homeContainer.addEventListener('keydown', ...); // Hapus ini
+        // this.skipToContent.addEventListener('click', ...); // Hapus ini
+        // this.skipToContent.addEventListener('keydown', ...); // Hapus ini
+>>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
 
         return homeContainer;
     }
 
     showStories(stories) {
+<<<<<<< HEAD
         this.storiesContainer.innerHTML = ''; // Kosongkan dulu "Loading..."
 
         if (!stories || stories.length === 0) { // Cek jika stories null/undefined atau kosong
             this.storiesContainer.innerHTML = '<p class="empty-message">Tidak ada cerita tersedia.</p>'; // Tambahkan class untuk styling
+=======
+        this.storiesContainer.innerHTML = '';
+
+        if (!stories || stories.length === 0) {
+            this.storiesContainer.innerHTML = '<p class="empty-message">Tidak ada cerita tersedia.</p>';
+>>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
             return;
         }
 
@@ -290,20 +324,32 @@ export default class HomeView {
             this.storiesContainer.appendChild(storyElement);
         });
     }
+<<<<<<< HEAD
     showError() {
         this.storiesContainer.innerHTML = `<p class="error">Gagal memuat story.</p>`;
     }
 
     // bindLogout dipindahkan ke sini, di luar bindHeader
+=======
+
+    showError(message) { // Tambah parameter message
+        this.storiesContainer.innerHTML = `<p class="error">${message}</p>`;
+    }
+
+>>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
     bindLogout(callback) {
         this.logoutButton.addEventListener('click', callback);
     }
 
+<<<<<<< HEAD
     // Add method to focus on stories container
+=======
+>>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
     focusOnStories() {
         this.storiesContainer.focus();
     }
 
+<<<<<<< HEAD
     // Show skip to content link only when tab is pressed
     showSkipToContent() {
         this.skipToContent.style.display = 'inline-block'; // Show the button when tab is pressed
@@ -311,10 +357,18 @@ export default class HomeView {
     }
 
     // Hide skip to content when clicked or enter is pressed
+=======
+    showSkipToContent() {
+        this.skipToContent.style.display = 'inline-block';
+        this.skipToContent.focus();
+    }
+
+>>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
     hideSkipToContent() {
         this.skipToContent.style.display = 'none';
     }
 
+<<<<<<< HEAD
     // Add event listener to handle focus and tab press
     bindHeader() {
         this.headerContainer.addEventListener('click', () => {
@@ -346,6 +400,17 @@ export default class HomeView {
     }
 
     // bindNotificationButton dipindahkan ke sini, di luar bindHeader
+=======
+    // Metode ini HARUS di `HomePresenter` dan dipanggil olehnya
+    bindHeaderAndSkipContentLogic(headerCallback, skipClickCallback, skipKeydownCallback, docKeydownCallback, docClickCallback) {
+        this.headerContainer.addEventListener('click', headerCallback);
+        this.skipToContent.addEventListener('click', skipClickCallback);
+        this.skipToContent.addEventListener('keydown', skipKeydownCallback);
+        document.addEventListener('keydown', docKeydownCallback);
+        document.addEventListener('click', docClickCallback);
+    }
+    
+>>>>>>> b12315d9fb4f15c1881ebd7c0b045bf1e3007b18
     bindNotificationButton(callback) {
         if (this.notificationButton) {
             this.notificationButton.addEventListener('click', callback);
